@@ -5,7 +5,7 @@ import { GetProps } from '_helpers';
 import { RadioGroupInput } from 'shared/view/elements';
 import { getFieldWithComponent } from 'shared/helpers/react';
 
-type IProps = GetProps<typeof RadioGroupInput> & FieldRenderProps;
+type IProps = GetProps<typeof RadioGroupInput> & FieldRenderProps<HTMLElement>;
 
 function RadioGroupInputField(props: IProps) {
   const { input, meta, ...rest } = props;

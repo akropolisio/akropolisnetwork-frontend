@@ -5,7 +5,7 @@ import { GetProps } from '_helpers';
 import { TextInput } from 'shared/view/elements';
 import { getFieldWithComponent } from 'shared/helpers/react';
 
-type IProps = GetProps<typeof TextInput> & FieldRenderProps;
+type IProps = GetProps<typeof TextInput> & FieldRenderProps<HTMLInputElement>;
 
 function TextInputField(props: IProps) {
   const { input, meta, ...rest } = props;

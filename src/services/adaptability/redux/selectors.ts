@@ -6,5 +6,5 @@ export function selectState(state: IAppReduxState): NS.IReduxState {
 }
 
 export function selectHydrated(state: IAppReduxState): boolean {
-  return state.adaptability.data.hydrated;
+  return selectState(state).data.hydrated;
 }

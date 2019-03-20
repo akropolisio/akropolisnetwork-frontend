@@ -73,7 +73,6 @@ function down(key: Breakpoint, breakpoints: Breakpoints): string {
   return value;
 }
 
-export { IProps };
 export default (
   connect(mapState)(
     provideStyles(Adaptive),

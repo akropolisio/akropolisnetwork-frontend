@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, FieldRenderProps, FieldProps as RFFieldProps } from 'react-final-form';
 import { Omit, MergeRight } from '_helpers';
 
-type BaseWrappedFieldProps = FieldRenderProps & {
+type BaseWrappedFieldProps = FieldRenderProps<HTMLElement> & {
   value?: any;
   onChange?: any;
 };
@@ -14,7 +14,7 @@ type RFFieldPropKey =
 
 function getFieldWithComponent<P extends BaseWrappedFieldProps>(Component: React.ComponentType<P>, type?: string) {
   type OwnProps = Omit<P, keyof BaseWrappedFieldProps>;
-  type FieldProps = Pick<RFFieldProps, RFFieldPropKey>;
+  type FieldProps = Pick<RFFieldProps<HTMLElement>, RFFieldPropKey>;
   type ResultProps = MergeRight<OwnProps, FieldProps>;
 
   const result: React.StatelessComponent<ResultProps> = (props: ResultProps) =>

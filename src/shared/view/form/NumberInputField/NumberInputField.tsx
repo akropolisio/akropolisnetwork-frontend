@@ -5,7 +5,7 @@ import { GetProps } from '_helpers';
 import { NumberInput } from 'shared/view/elements';
 import { getFieldWithComponent } from 'shared/helpers/react';
 
-type IProps = GetProps<typeof NumberInput> & FieldRenderProps;
+type IProps = GetProps<typeof NumberInput> & FieldRenderProps<HTMLElement>;
 
 class NumberInputField extends React.Component<IProps> {
   public render() {
@@ -18,7 +18,8 @@ class NumberInputField extends React.Component<IProps> {
     );
   }
 
-  private onChange: GetProps<typeof NumberInput>['onChange'] = value => this.props.input.onChange(value.floatValue);
+  private onChange: GetProps<typeof NumberInput>['onChange'] =
+    value => this.props.input.onChange(value.floatValue as any)
 }
 
 export default getFieldWithComponent(NumberInputField);

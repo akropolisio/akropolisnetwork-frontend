@@ -80,4 +80,4 @@ export default class Html extends React.PureComponent<IHtmlProps> {
   }
 }
 
-export { Html, IHtmlProps };
+export { Html };

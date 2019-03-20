@@ -5,7 +5,7 @@ import { GetProps } from '_helpers';
 import { CheckboxInput } from 'shared/view/elements';
 import { getFieldWithComponent } from 'shared/helpers/react';
 
-type IProps = GetProps<typeof CheckboxInput> & FieldRenderProps;
+type IProps = GetProps<typeof CheckboxInput> & FieldRenderProps<HTMLElement>;
 
 function CheckboxInputField(props: IProps) {
   const { input, meta, ...rest } = props;

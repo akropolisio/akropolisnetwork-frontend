@@ -6,7 +6,7 @@ import { GetProps } from '_helpers';
 import { Radio, FormControlLabel } from 'shared/view/elements';
 import { getFieldWithComponent } from 'shared/helpers/react';
 
-type BaseProps = GetProps<typeof Radio> & FieldRenderProps;
+type BaseProps = GetProps<typeof Radio> & FieldRenderProps<HTMLElement>;
 
 interface IProps extends BaseProps {
   label: string;

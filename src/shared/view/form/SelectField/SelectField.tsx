@@ -5,7 +5,7 @@ import { GetProps } from '_helpers';
 import { Select } from 'shared/view/elements';
 import { getFieldWithComponent } from 'shared/helpers/react';
 
-type IProps = GetProps<typeof Select> & FieldRenderProps;
+type IProps = GetProps<typeof Select> & FieldRenderProps<HTMLElement>;
 
 function SelectField(props: IProps) {
   const { input, meta, ...rest } = props;

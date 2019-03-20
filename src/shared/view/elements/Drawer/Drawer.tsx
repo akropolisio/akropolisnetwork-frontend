@@ -21,5 +21,4 @@ class Drawer extends React.Component<IProps> {
   }
 }
 
-export { IProps };
 export default provideStyles(Drawer);

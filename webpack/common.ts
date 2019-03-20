@@ -40,7 +40,7 @@ const threadLoader: webpack.Loader[] = (() => {
 })();
 
 export const getCommonPlugins: (type: BuildType) => webpack.Plugin[] = (type) => [
-  new CleanWebpackPlugin(['build', 'static'], { root: path.resolve(__dirname, '..') }),
+  new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({
     filename: `css/[name].[${chunkHash}].css`,
     chunkFilename: `css/[id].[${chunkHash}].css`,
@@ -153,10 +153,22 @@ export function getStyleRules(type: BuildType) {
     server: ['css-loader/locals'],
   };
 
+  const cssLoader: webpack.Loader = {
+    loader: 'css-loader',
+    options: {
+      importLoaders: 3,
+    },
+  };
   const scssFirstLoaders: Record<BuildType, webpack.Loader[]> = {
-    dev: ['style-loader', 'css-loader?importLoaders=1'],
-    prod: [MiniCssExtractPlugin.loader, 'css-loader?importLoaders=1'],
-    server: ['css-loader/locals?importLoaders=1'],
+
+    dev: ['style-loader', cssLoader],
+    prod: [MiniCssExtractPlugin.loader, cssLoader],
+    server: [{
+      loader: 'css-loader/locals',
+      options: {
+        importLoaders: 3,
+      },
+    }],
   };
 
   return [
